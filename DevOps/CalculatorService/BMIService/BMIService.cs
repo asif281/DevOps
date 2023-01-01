@@ -6,7 +6,9 @@ namespace DevOps.CalculatorService.BMIService
     {
         public BMICalculator CalculateBMI(BMICalculator bMICalculator)
         {
-            bMICalculator.Bmi = bMICalculator.Weight / (bMICalculator.Height * bMICalculator.Height);
+            var meter = bMICalculator.Height/100;
+            var sqOfHieght = meter * meter;
+            bMICalculator.Bmi = bMICalculator.Weight / (sqOfHieght);
             return bMICalculator;
         }
     }

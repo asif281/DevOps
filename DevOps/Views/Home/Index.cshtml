@@ -1,4 +1,5 @@
-﻿@model DevOps.Models.BMICalculator
+﻿@using DevOps.CalculatorService.BMIService;
+@model DevOps.Models.BMICalculator
 
 @{
     ViewData["Title"] = "Index";
@@ -11,14 +12,20 @@
     <div class="col-md-4">
         <form asp-action="Index" method="post">
             <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight"></span>
-            </div>
+                <label class="control-label"> Please Select Your Gender</label>
+                <select class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option selected="selected" value="">Select</option>  
+            </select>  
+            </div>  
             <div class="form-group">
-                <label asp-for="Height" class="control-label"></label>
+                <label asp-for="Height" class="control-label">Please Enter your Height in CM</label>
                 <input asp-for="Height" class="form-control" />
                 <span asp-validation-for="Height"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label">Please Enter your Weight</label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight"></span>
             </div>
             <br />
             <div class="form-group">
