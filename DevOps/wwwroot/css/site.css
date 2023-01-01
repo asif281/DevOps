@@ -16,3 +16,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+.value-textbox {
+    color: black; /* default color */
+}
+
+    .value-textbox.negative {
+        color: red;
+    }
+
+    .value-textbox.positive {
+        color: green;
+    }

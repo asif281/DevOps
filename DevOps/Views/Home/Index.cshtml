@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+
 }
 
 
@@ -13,9 +14,9 @@
         <form asp-action="Index" method="post">
             <div class="form-group">
                 <label class="control-label"> Please Select Your Gender</label>
-                <select class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
-                    <option selected="selected" value="">Select</option>  
-            </select>  
+                <select class="form-control"  asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">
+            </select>
+                <span asp-validation-for="Height"></span>
             </div>  
             <div class="form-group">
                 <label asp-for="Height" class="control-label">Please Enter your Height in CM</label>
@@ -36,6 +37,10 @@
                 <label asp-for="Bmi" class="control-label">Your BMI</label>
                 <input asp-for="Bmi" class="form-control " disabled="disabled" />
                 <span asp-validation-for="Bmi"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Range" class="control-label value-textbox @ViewBag.TextboxClass">Staus</label>
+                <input asp-for="Range" class="form-control value-textbox @ViewBag.TextboxClass " disabled="disabled" />
             </div>
         </form>
     </div>

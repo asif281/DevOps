@@ -2,6 +2,7 @@
 using DevOps.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace DevOps.Controllers
 {
@@ -25,6 +26,15 @@ namespace DevOps.Controllers
         public IActionResult Index(BMICalculator bMICalculator)
         {
             BMICalculator res = bMIService.CalculateBMI(bMICalculator);
+            if (res.Bmi >= 18.5 && res.Bmi <= 24.9)
+            {
+                ViewBag.TextboxClass = "positive";
+            }
+            else
+            {
+                ViewBag.TextboxClass = "negative";
+            }
+            
             return View(res);
         }
 
