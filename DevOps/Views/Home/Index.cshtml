@@ -1,0 +1,38 @@
+﻿@model DevOps.Models.BMICalculator
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h4>BMICalculator</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index" method="post">
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <center><input type="submit" value="Calculate" class="btn btn-primary" /></center>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Bmi" class="control-label">Your BMI</label>
+                <input asp-for="Bmi" class="form-control " disabled="disabled" />
+                <span asp-validation-for="Bmi"></span>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
